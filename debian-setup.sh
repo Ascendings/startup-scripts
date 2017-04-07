@@ -1,5 +1,12 @@
 #!/bin/bash
 
+## Make sure we're root before we start to do anything
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root" 1>&2
+  exit 1
+fi
+
+
 ## Shell tweaks
 # create my bin dir and add it to my .bashrc
 mkdir ~/bin
@@ -17,41 +24,41 @@ source ~/.bashrc
 
 ## Packages and updates
 # Atom editor repo
-#sudo add-apt-repository ppa:webupd8team/atom
+#add-apt-repository ppa:webupd8team/atom
 
 # Nextcloud client repo
-#sudo apt-add-repository ppa:nextcloud-devs/client
+#apt-add-repository ppa:nextcloud-devs/client
 
 # Node.js repo
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_7.x | -E bash -
 
 # Noobslab theme repos
-#sudo add-apt-repository ppa:noobslab/themes
-#sudo add-apt-repository ppa:snwh/pulp
+#add-apt-repository ppa:noobslab/themes
+#add-apt-repository ppa:snwh/pulp
 
 # Opera repo
-echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
-wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | tee -a /etc/apt/sources.list.d/opera.list
+wget -qO - https://deb.opera.com/archive.key | apt-key add -
 
 # Runescape Unix Client repo
-#echo "deb http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu xenial main" | sudo tee -a /etc/apt/sources.list.d/unix-runescape-client.list
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9BA73CFA
-sudo add-apt-repository ppa:hikariknight/unix-runescape-client
-sudo sed -i "s/$()/trusty/g" /etc/apt/sources.list.d/some-ppa-wheezy.list
+#echo "deb http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/unix-runescape-client.list
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9BA73CFA
+add-apt-repository ppa:hikariknight/unix-runescape-client
+sed -i "s/$()/trusty/g" /etc/apt/sources.list.d/some-ppa-wheezy.list
 
 # Virtualbox repo
-echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | tee -a /etc/apt/sources.list.d/virtualbox.list
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
 
 # Vivaldi repo
-echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
-wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
+echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | tee -a /etc/apt/sources.list.d/vivaldi.list
+wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | apt-key add -
 
 # Update repository sources
-sudo apt update && sudo apt --yes upgrade
+apt update && apt --yes upgrade
 
 # install our packages
-sudo apt -y install \
+apt -y install \
     chromium \
     cinnamon-desktop-environment \
     clementine \
@@ -102,13 +109,13 @@ sudo apt -y install \
     xclip
 
 # install global node.js packages
-sudo npm install -g \
+npm install -g \
     coffeescript \
     express-generator \
     nodemon
 
 # install global Ruby gems
-sudo gem install sass
+gem install sass
 
 # install Go binaries 
 go get github.com/gpmgo/gopm
@@ -118,8 +125,8 @@ go get github.com/unknwon/bra
 
 ## Other system tweaks
 # set systemd to use local timezone
-sudo timedatectl set-local-rtc 1
+timedatectl set-local-rtc 1
 
 # Remove any uneeded packages
-sudo apt-get autoremove
+apt-get autoremove
 
