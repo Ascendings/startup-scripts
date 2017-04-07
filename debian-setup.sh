@@ -27,6 +27,10 @@ source ~/.bashrc
 
 
 ## Packages and updates
+# we need these packages first
+apt -y install apt-transport-https curl
+
+
 # Atom editor repo
 echo 'deb http://ppa.launchpad.net/webupd8team/atom/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/webupd8team-ubuntu-atom-yakkety.list
 echo 'deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/webupd8team-ubuntu-atom-yakkety.list
