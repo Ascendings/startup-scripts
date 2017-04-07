@@ -7,6 +7,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 
+## Variables
+UBUNTU_VERS='yakkety'
+
+
 ## Shell tweaks
 # create my bin dir and add it to my .bashrc
 mkdir ~/bin
@@ -24,27 +28,39 @@ source ~/.bashrc
 
 ## Packages and updates
 # Atom editor repo
-#add-apt-repository ppa:webupd8team/atom
+echo 'deb http://ppa.launchpad.net/webupd8team/atom/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/webupd8team-ubuntu-atom-yakkety.list
+echo 'deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/webupd8team-ubuntu-atom-yakkety.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+
+# Firefox repo
+wget -q -O - http://mozilla.debian.net/archive.asc | apt-key add -
+echo 'deb http://mozilla.debian.net/ jessie-backports firefox-beta' | tee -a /etc/apt/sources.list.d/mozilla-firefox.list
 
 # Nextcloud client repo
-#apt-add-repository ppa:nextcloud-devs/client
+echo 'deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/nextcloud-devs-ubuntu-client-yakkety.list
+echo 'deb-src http://ppa.launchpad.net/nextcloud-devs/client/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/nextcloud-devs-ubuntu-client-yakkety.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AD3DD469
 
 # Node.js repo
 curl -sL https://deb.nodesource.com/setup_7.x | -E bash -
 
 # Noobslab theme repos
-#add-apt-repository ppa:noobslab/themes
-#add-apt-repository ppa:snwh/pulp
+echo 'deb http://ppa.launchpad.net/noobslab/themes/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/noobslab-ubuntu-themes-yakkety.list
+echo 'deb-src http://ppa.launchpad.net/noobslab/themes/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/noobslab-ubuntu-themes-yakkety.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F59EAE4D
+
+echo 'deb http://ppa.launchpad.net/snwh/pulp/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/snwh-ubuntu-pulp-yakkety.list
+echo 'deb-src http://ppa.launchpad.net/snwh/pulp/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/snwh-ubuntu-pulp-yakkety.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 89993A70
 
 # Opera repo
 echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | tee -a /etc/apt/sources.list.d/opera.list
 wget -qO - https://deb.opera.com/archive.key | apt-key add -
 
 # Runescape Unix Client repo
-#echo "deb http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/unix-runescape-client.list
-#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9BA73CFA
-add-apt-repository ppa:hikariknight/unix-runescape-client
-sed -i "s/$()/trusty/g" /etc/apt/sources.list.d/some-ppa-wheezy.list
+echo 'deb http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/hikariknight-ubuntu-unix-runescape-client-yakkety.list
+echo 'deb-src http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu yakkety main' | tee -a /etc/apt/sources.list.d/hikariknight-ubuntu-unix-runescape-client-yakkety.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9BA73CFA
 
 # Virtualbox repo
 echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | tee -a /etc/apt/sources.list.d/virtualbox.list
@@ -62,7 +78,7 @@ apt -y install \
     chromium \
     cinnamon-desktop-environment \
     clementine \
-#    dark-aurora \
+    dark-aurora \
     dkms \
     filezilla \
     fonts-roboto \
@@ -72,15 +88,15 @@ apt -y install \
     gnome-shell \
     gnome-tweak-tool \
     golang \
-#    nextcloud-client \
+    nextcloud-client \
     nmap \
     nodejs \
     openjdk-7-jre \
     openjdk-7-jdk \
     opera-stable \
-#    paper-cursor-theme \
-#    paper-gtk-theme \
-#    paper-icon-theme \
+    paper-cursor-theme \
+    paper-gtk-theme \
+    paper-icon-theme \
     php5-cli \
     php5-ldap \
     php5-mysqlnd \
