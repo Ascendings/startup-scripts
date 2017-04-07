@@ -30,7 +30,7 @@ sudo add-apt-repository --yes ppa:noobslab/themes
 sudo add-apt-repository --yes ppa:snwh/pulp
 
 # Opera repo
-echo 'deb https://deb.opera.com/opera-stable/ stable non-free' > /etc/apt/sources.list.d/opera.list
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
 
 # Runescape Unix Client repo
 sudo add-apt-repository --yes ppa:hikariknight/unix-runescape-client
@@ -40,7 +40,7 @@ echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | su
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 
 # Vivaldi repo
-echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' > /etc/apt/sources.list.d/vivaldi.list
+echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
 
 # Update our repositories and make sure the system is up-to-date
 sudo apt update && sudo apt --yes upgrade
