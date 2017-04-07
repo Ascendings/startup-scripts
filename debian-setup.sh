@@ -81,6 +81,7 @@ apt -y install \
     dark-aurora \
     dkms \
     filezilla \
+    firefox-beta \
     fonts-roboto \
     gcc \
     gimp \
@@ -109,10 +110,8 @@ apt -y install \
     remmina-plugin-rdp \
     ruby \
     ruby-dev \
-#    rustc \
     software-properties-common \
     sqlitebrowser \
-#    steam \
     thunderbird \
     transmission \
     unix-runescape-client \
