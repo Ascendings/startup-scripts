@@ -31,6 +31,7 @@ sudo add-apt-repository --yes ppa:snwh/pulp
 
 # Opera repo
 echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
+wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Runescape Unix Client repo
 sudo add-apt-repository --yes ppa:hikariknight/unix-runescape-client
@@ -41,6 +42,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 
 # Vivaldi repo
 echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
+wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
 
 # Update our repositories and make sure the system is up-to-date
 sudo apt update && sudo apt --yes upgrade

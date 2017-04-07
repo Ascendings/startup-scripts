@@ -30,7 +30,8 @@ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 #sudo add-apt-repository ppa:snwh/pulp
 
 # Opera repo
-echo 'deb https://deb.opera.com/opera-stable/ stable non-free' > /etc/apt/sources.list.d/opera.list
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
+wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Runescape Unix Client repo
 #echo "deb http://ppa.launchpad.net/hikariknight/unix-runescape-client/ubuntu xenial main" | sudo tee -a /etc/apt/sources.list.d/unix-runescape-client.list
@@ -43,7 +44,8 @@ echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | su
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 
 # Vivaldi repo
-echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' > /etc/apt/sources.list.d/vivaldi.list
+echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
+wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
 
 # Update repository sources
 sudo apt update && sudo apt --yes upgrade
