@@ -64,7 +64,6 @@ sudo apt -y install \
     gnome-shell \
     gnome-tweak-tool \
     golang \
-    i8kutils \
     nextcloud-client \
     nmap \
     nodejs \
@@ -118,4 +117,7 @@ go get github.com/unknwon/bra
 ## Other system tweaks
 # set systemd to use local timezone
 sudo timedatectl set-local-rtc 1
+
+# Remove any uneeded packages
+sudo apt autoremove
 
