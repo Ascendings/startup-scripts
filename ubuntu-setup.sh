@@ -34,7 +34,7 @@ sudo add-apt-repository --yes ppa:noobslab/themes
 sudo add-apt-repository --yes ppa:snwh/pulp
 
 # Opera repo
-echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera-stable.list
 wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Runescape Unix Client repo
