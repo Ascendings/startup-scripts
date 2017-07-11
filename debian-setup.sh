@@ -104,6 +104,8 @@ sudo npm install -g \
 sudo gem install sass
 sudo gem install rails
 
+# set the Go path for this script
+export GOPATH=$HOME/go
 # install Go binaries 
 go get github.com/gpmgo/gopm
 go get github.com/mattn/gom
