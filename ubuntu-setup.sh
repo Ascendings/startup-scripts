@@ -1,12 +1,5 @@
 #!/bin/bash
 
-## Make sure we're root before we start to do anything
-if [[ $EUID -ne 0 ]]; then
-  echo "This script must be run as root" 1>&2
-  exit 1
-fi
-
-
 ## Shell tweaks
 # create my bin dir and add it to my .bashrc
 mkdir ~/bin
@@ -24,38 +17,38 @@ source ~/.bashrc
 
 ## Packages and updates
 # Atom editor repo
-add-apt-repository --yes ppa:webupd8team/atom
+sudo add-apt-repository --yes ppa:webupd8team/atom
 
 # Nextcloud client repo
-apt-add-repository --yes ppa:nextcloud-devs/client
+sudo apt-add-repository --yes ppa:nextcloud-devs/client
 
 # Node.js repo
-curl -sL https://deb.nodesource.com/setup_7.x | -E bash -
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 
 # Noobslab theme repos
-add-apt-repository --yes ppa:noobslab/themes
-add-apt-repository --yes ppa:snwh/pulp
+sudo add-apt-repository --yes ppa:noobslab/themes
+sudo add-apt-repository --yes ppa:snwh/pulp
 
 # Opera repo
-echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | tee -a /etc/apt/sources.list.d/opera.list
-wget -qO - https://deb.opera.com/archive.key | apt-key add -
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
+wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Runescape Unix Client repo
-add-apt-repository --yes ppa:hikariknight/unix-runescape-client
+sudo add-apt-repository --yes ppa:hikariknight/unix-runescape-client
 
 # Virtualbox repo
-echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | tee -a /etc/apt/sources.list.d/virtualbox.list
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
+echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 
 # Vivaldi repo
-echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | tee -a /etc/apt/sources.list.d/vivaldi.list
-wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | apt-key add -
+echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
+wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
 
 # Update our repositories and make sure the system is up-to-date
-apt update && apt --yes upgrade
+sudo apt update && sudo apt --yes upgrade
 
 # install our packages
-apt -y install \
+sudo apt -y install \
     atom \
     chromium-browser \
     cinnamon-desktop-environment \
@@ -107,24 +100,29 @@ apt -y install \
     xclip
 
 # install global node.js packages
-npm install -g \
+sudo npm install -g \
     coffeescript \
     express-generator \
     nodemon
 
 # install global Ruby gems
-gem install sass
+sudo gem install sass
+sudo gem install rails
 
 # install Go binaries 
 go get github.com/gpmgo/gopm
 go get github.com/mattn/gom
 go get github.com/unknwon/bra
+go get gtihub.com/revel/cmd/revel
 
 
 ## Other system tweaks
 # set systemd to use local timezone
-timedatectl set-local-rtc 1
+sudo timedatectl set-local-rtc 1
+
+# git settings
+git config --global push.default simple
 
 # Remove any uneeded packages
-apt autoremove
+sudo apt autoremove
 
