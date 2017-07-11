@@ -45,7 +45,7 @@ echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /et
 wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Virtualbox repo
-echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+echo "deb http://download.virtualbox.org/virtualbox/debian $CODE contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 
 # Vivaldi repo

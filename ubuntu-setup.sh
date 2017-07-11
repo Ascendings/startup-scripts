@@ -1,5 +1,9 @@
 #!/bin/bash
 
+## Variables
+CODE=$(bash <(cat /etc/os-release; echo 'echo ${UBUNTU_CODENAME/*, /}'))
+
+
 ## Shell tweaks
 # create my bin dir and add it to my .bashrc
 mkdir ~/bin
@@ -37,7 +41,7 @@ wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 sudo add-apt-repository --yes ppa:hikariknight/unix-runescape-client
 
 # Virtualbox repo
-echo 'deb http://download.virtualbox.org/virtualbox/debian yakkety contrib' | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+echo "deb http://download.virtualbox.org/virtualbox/debian $CODE contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 
 # Vivaldi repo
