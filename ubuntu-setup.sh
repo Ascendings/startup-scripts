@@ -101,7 +101,8 @@ sudo apt -y install \
     vivaldi-stable \
     vlc \
     wireshark \
-    xclip
+    xclip \
+    zlib1g-dev
 
 # install Python packages
 sudo pip install sshuttle
