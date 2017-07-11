@@ -27,7 +27,7 @@ sudo add-apt-repository --yes ppa:webupd8team/atom
 sudo apt-add-repository --yes ppa:nextcloud-devs/client
 
 # Node.js repo
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 # Noobslab theme repos
 sudo add-apt-repository --yes ppa:noobslab/themes

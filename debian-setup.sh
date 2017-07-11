@@ -38,7 +38,7 @@ sudo apt -y install apt-transport-https curl
 
 ## Repositories
 # Node.js repo
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 # Opera repo
 echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /etc/apt/sources.list.d/opera.list
