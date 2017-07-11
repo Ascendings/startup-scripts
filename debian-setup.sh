@@ -9,7 +9,7 @@ elif [ $VER = 8 ]; then
   CODE="jessie"
 elif [ $VER = 9 ]; then
   CODE="stretch"
-  PHP_VERS="7"
+  PHP_VERS="7.0"
 fi
 
 
@@ -76,8 +76,6 @@ sudo apt -y install \
     php"$PHP_VERS"-mysqlnd \
     php"$PHP_VERS"-pgsql \
     python-pip \
-    remmina \
-    remmina-plugin-rdp \
     ruby \
     ruby-dev \
     software-properties-common \
