@@ -99,6 +99,9 @@ sudo apt -y install \
     wireshark \
     xclip
 
+# install Python packages
+sudo pip install sshuttle
+
 # install global node.js packages
 sudo npm install -g \
     coffeescript \
