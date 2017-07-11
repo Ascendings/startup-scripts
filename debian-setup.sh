@@ -76,7 +76,6 @@ sudo apt -y install \
     php"$PHP_VERS"-mysqlnd \
     php"$PHP_VERS"-pgsql \
     python-pip \
-    python-software-properties \
     remmina \
     remmina-plugin-rdp \
     ruby \
