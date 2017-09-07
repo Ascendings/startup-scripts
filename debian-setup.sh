@@ -37,6 +37,11 @@ sudo apt -y install apt-transport-https curl
 
 
 ## Repositories
+# Arc theme repo via OBS (only if using Jessie)
+if [[ "$CODE" == "jessie" ]]; then
+  echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/ /' > /etc/apt/sources.list.d/arc-theme.list 
+fi
+
 # Node.js repo
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
@@ -57,6 +62,7 @@ sudo apt update && sudo apt --yes upgrade
 
 # install our packages
 sudo apt -y install \
+    arc-theme \
     chromium \
     cinnamon-desktop-environment \
     clementine \

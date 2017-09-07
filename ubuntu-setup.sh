@@ -53,6 +53,7 @@ sudo apt update && sudo apt --yes upgrade
 
 # install our packages
 sudo apt -y install \
+    arc-theme \
     atom \
     chromium-browser \
     cinnamon-desktop-environment \
@@ -91,6 +92,7 @@ sudo apt -y install \
     rustc \
     sqlitebrowser \
     steam \
+    synapse \
     thunderbird \
     transmission \
     unity-tweak-tool \
