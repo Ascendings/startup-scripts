@@ -12,29 +12,12 @@ elif [ $VER = 9 ]; then
   PHP_VERS="7.0"
 fi
 
-
 ## Shell tweaks
-# create my bin dir and add it to my .bashrc
-mkdir ~/bin
-echo -e '' >> ~/.bashrc
-echo -e '# add home bin/ dir to my path' >> ~/.bashrc
-echo -e 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-echo -e '' >> ~/.bashrc
-
-# add Go path stuff to my .bashrc file
-echo -e '# add Go stuff to my path' >> ~/.bashrc
-echo -e 'export GOPATH=$HOME/go' >> ~/.bashrc
-echo -e 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
-echo -e '' >> ~/.bashrc
-
-# source my new .bashrc file
-source ~/.bashrc
-
+bash common/shell-tweaks.sh
 
 ## Packages and updates
 # we need these packages first
 sudo apt -y install apt-transport-https curl
-
 
 ## Repositories
 # Arc theme repo via OBS (only if using Jessie)
@@ -97,35 +80,15 @@ sudo apt -y install \
     xclip \
     zlib1g-dev
 
-# install Python packages
-sudo pip install sshuttle
+## Install extra packages
+bash common/extra-packages.sh
 
-# install global node.js packages
-sudo npm install -g \
-    coffeescript \
-    express-generator \
-    nodemon
-
-# install global Ruby gems
-sudo gem install sass
-sudo gem install rails
-
-# set the Go path for this script
-export GOPATH=$HOME/go
-# install Go binaries 
-go get github.com/gpmgo/gopm
-go get github.com/mattn/gom
-go get github.com/unknwon/bra
-go get github.com/revel/cmd/revel
-
+## Git setup
+bash common/git-setup.sh
 
 ## Other system tweaks
 # set systemd to use local timezone
 sudo timedatectl set-local-rtc 1
 
-# Git configuration
-git config --global push.default simple
-
 # Remove any uneeded packages
 sudo apt-get autoremove
-

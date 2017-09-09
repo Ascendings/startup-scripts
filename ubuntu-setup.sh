@@ -3,21 +3,8 @@
 ## Variables
 CODE=$(bash <(cat /etc/os-release; echo 'echo ${UBUNTU_CODENAME/*, /}'))
 
-
 ## Shell tweaks
-# create my bin dir and add it to my .bashrc
-mkdir ~/bin
-echo -e 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-echo -e '' >> ~/.bashrc
-
-# add Go path stuff to my .bashrc file
-echo -e 'export GOPATH=$HOME/go' >> ~/.bashrc
-echo -e 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
-echo -e '' >> ~/.bashrc
-
-# source my new .bashrc file
-source ~/.bashrc
-
+bash common/shell-tweaks.sh
 
 ## Packages and updates
 # Atom editor repo
@@ -106,34 +93,15 @@ sudo apt -y install \
     xclip \
     zlib1g-dev
 
-# install Python packages
-sudo pip install sshuttle
+## Install extra, language-specific packages
+bash common/extra-packages.sh
 
-# install global node.js packages
-sudo npm install -g \
-    coffeescript \
-    express-generator \
-    nodemon
-
-# install global Ruby gems
-sudo gem install sass
-sudo gem install rails
-
-# set the Go path for this script
-export GOPATH=$HOME/go
-# install Go binaries 
-go get github.com/gpmgo/gopm
-go get github.com/mattn/gom
-go get github.com/unknwon/bra
-go get gtihub.com/revel/cmd/revel
-
+## Set up my git directory
+bash common/git-setup.sh
 
 ## Other system tweaks
 # set systemd to use local timezone
 sudo timedatectl set-local-rtc 1
-
-# git settings
-git config --global push.default simple
 
 # Remove any uneeded packages
 sudo apt autoremove
