@@ -59,6 +59,7 @@ sudo apt -y install \
     gcc \
     gimp \
     git \
+    gnome \
     gnome-shell \
     gnome-tweak-tool \
     golang \
