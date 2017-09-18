@@ -50,6 +50,7 @@ sudo apt update && sudo apt --yes upgrade
 # install our packages
 sudo apt -y install \
     arc-theme \
+    audacity \
     chromium \
     cinnamon-desktop-environment \
     clementine \
@@ -61,6 +62,7 @@ sudo apt -y install \
     gnome-shell \
     gnome-tweak-tool \
     golang \
+    guvcview \
     nmap \
     nodejs \
     opera-stable \
