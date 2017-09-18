@@ -40,6 +40,7 @@ sudo apt update && sudo apt --yes upgrade
 
 # install our packages
 sudo apt -y install \
+    audacity \
     arc-theme \
     atom \
     chromium-browser \
@@ -56,6 +57,7 @@ sudo apt -y install \
     gnome-shell \
     gnome-tweak-tool \
     golang \
+    guvcview \
     nextcloud-client \
     nmap \
     nodejs \
@@ -82,7 +84,6 @@ sudo apt -y install \
     synapse \
     thunderbird \
     transmission \
-    unity-tweak-tool \
     unix-runescape-client \
     vim \
     virt-manager \
