@@ -22,6 +22,7 @@ sudo zypper refresh
 
 # install packages
 sudo zypper install \
+    audacity \
     arc-icon-theme \
     chrome-gnome-shell \
     chromium \
@@ -39,6 +40,7 @@ sudo zypper install \
     go \
     gtk2-metatheme-arc \
     gtk3-metatheme-arc \
+    guvcview \
     mate \
     mate-applets \
     mate-power-manager \
