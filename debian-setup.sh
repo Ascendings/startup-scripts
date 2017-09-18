@@ -33,16 +33,16 @@ echo 'deb https://deb.opera.com/opera-stable/ stable non-free' | sudo tee -a /et
 wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 
 # Sublime Text 3 repo
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
 # Virtualbox repo
-echo "deb http://download.virtualbox.org/virtualbox/debian $CODE contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+echo "deb http://download.virtualbox.org/virtualbox/debian $CODE contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
 
 # Vivaldi repo
-echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
 wget -qO - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
+echo 'deb http://repo.vivaldi.com/stable/deb/ stable main' | sudo tee -a /etc/apt/sources.list.d/vivaldi.list
 
 # Update repository sources
 sudo apt update && sudo apt --yes upgrade
