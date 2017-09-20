@@ -54,6 +54,8 @@ sudo apt -y install \
     chromium \
     cinnamon-desktop-environment \
     clementine \
+    clusterssh \
+    composer \
     dkms \
     filezilla \
     gcc \
@@ -66,6 +68,8 @@ sudo apt -y install \
     guvcview \
     nmap \
     nodejs \
+    openjdk-8-jre \
+    openjdk-8-jdk \
     opera-stable \
     php"$PHP_VERS"-cli \
     php"$PHP_VERS"-ldap \

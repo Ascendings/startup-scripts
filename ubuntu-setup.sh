@@ -27,6 +27,10 @@ wget -qO - https://deb.opera.com/archive.key | sudo apt-key add -
 # Runescape Unix Client repo
 sudo add-apt-repository --yes ppa:hikariknight/unix-runescape-client
 
+# Sublime Text 3 repo
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
 # Virtualbox repo
 echo "deb http://download.virtualbox.org/virtualbox/debian $CODE contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
@@ -46,6 +50,7 @@ sudo apt -y install \
     chromium-browser \
     cinnamon-desktop-environment \
     clementine \
+    clusterssh \
     composer \
     dark-aurora \
     dkms \
@@ -81,6 +86,7 @@ sudo apt -y install \
     rustc \
     sqlitebrowser \
     steam \
+    sublime-text \
     synapse \
     thunderbird \
     transmission \

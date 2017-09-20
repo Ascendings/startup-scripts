@@ -28,6 +28,8 @@ sudo zypper install \
     chromium \
     cinnamon \
     clementine \
+    clusterssh \
+    composer \
     dkms \
     flash-plugin \
     filezilla \
